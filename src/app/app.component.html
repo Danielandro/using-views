@@ -1,50 +1,49 @@
 <div class="container">
+  <ng-container [ngTemplateOutlet]="introContainer"></ng-container>
+  <!-- intro -->
   <ng-container *ngIf="currentPage === 'intro'"
                 [ngTemplateOutlet]="introView">
 
+    <button (click)="changePage()"
+            class="btn btn-navigate-next">></button>
   </ng-container>
+  <!-- intro end -->
 
+  <!-- start -->
   <ng-container [ngTemplateOutlet]="startView"
                 *ngIf="currentPage === 'start'">
 
+    <button (click)="changePage()"
+            class="btn btn-navigate-next">></button>
+
   </ng-container>
+  <!-- start end -->
 </div>
 
-
-
-
 <ng-template #introView>
-
   <img src="assets/images/brdnk-vision-sWATtqnhQmw-unsplash.jpg"
        alt="background image"
        class="bg-img">
-  <div class="intro-container">
-    <img src="assets/images/coffee-time-logo-png_91570.jpg"
-         alt="company logo"
-         class="logo">
-    <h1 class="intro-text">What time is it... ☕</h1>
-
-  </div>
-  <button (click)="changePage()"
-          class="btn btn-navigate-next">></button>
-
+  <ng-content select=".intro-container"></ng-content>
+  <ng-content select=".btn-navigate-next"></ng-content>
 </ng-template>
 
 <ng-template #startView>
-
   <img src="assets/images/steven-aguilar-VLP_1ZXqzgc-unsplash.jpg"
        alt="model posing"
        class="bg-img">
+  <ng-content select=".intro-container"></ng-content>
+  <button (click)="changePage()"
+          class=" btn btn-navigate-previous">
+    < </button>
+      <ng-content select=".btn-navigate-next"></ng-content>
+</ng-template>
+
+<ng-template #introContainer>
   <div class="intro-container">
     <img src="assets/images/coffee-time-logo-png_91570.jpg"
          alt="company logo"
          class="logo">
     <h1 class="intro-text">What time is it... ☕</h1>
-
   </div>
-  <button (click)="changePage()"
-          class=" btn btn-navigate-previous">
-    < </button>
-      <button class="btn btn-navigate-next">></button>
-
 </ng-template>
