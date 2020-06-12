@@ -6,20 +6,28 @@
 }
 
 .bg-img {
-  position: absolute;
-  position: relative;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: auto;
+  height: 100%;
+  width: 100%;
   background: url('../assets/images/brdnk-vision-sWATtqnhQmw-unsplash.jpg') no-repeat;
   filter: grayscale(0.8) brightness(0.5);
+  z-index: -1;
 }
 
-.btn-navigate-next {
+.intro-container {
   position: absolute;
-  top: 50%;
+  top: 0;
+  left: 0;
   right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  position: absolute;
+  top: calc(50% - (71.2px / 2));
   padding: 20px;
   border-radius: 50%;
   font-size: 1.2rem;
@@ -27,18 +35,23 @@
   background-color: rgba(50, 50, 50, 0.9);
   color: rgba(255, 255, 255, 0.89);
   outline-style: none;
+
+  &-navigate-next {
+    right: 10px;
+  }
+
+  &-navigate-previous {
+    left: 10px;
+  }
 }
 
 .logo {
-  position: absolute;
-  left: 35%;
-  bottom: 320px;
+  // position: absolute;
+  // left: 35%;
+  // bottom: 320px;
 }
 
 .intro-text {
-  position: absolute;
-  left: 32%;
-  bottom: 120px;
   text-align: center;
   color: rgba(255, 255, 255, 0.89);
 }
